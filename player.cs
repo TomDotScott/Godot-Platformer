@@ -19,19 +19,24 @@ public partial class player : CharacterBody2D
 	// Called every physics update of the game, by default it's 60u/s
 	public override void _PhysicsProcess(double delta)
 	{
-		m_velocity.Y += 2.0f;
+		m_velocity.Y += 15.0f;
 
 		if (Input.IsActionPressed("ui_right"))
 		{
-			m_velocity.X = 50.0f;
+			m_velocity.X = 100.0f;
 		}
 		else if (Input.IsActionPressed("ui_left"))
 		{
-			m_velocity.X = -50.0f;
+			m_velocity.X = -100.0f;
 		}
 		else
 		{
 			m_velocity.X = 0.0f;
+		}
+
+		if (Input.IsActionJustPressed("ui_up"))
+		{
+			m_velocity.Y = -275.0f;
 		}
 
 		Velocity = m_velocity;
